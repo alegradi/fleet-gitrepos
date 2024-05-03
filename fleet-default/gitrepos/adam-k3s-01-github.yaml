@@ -1,0 +1,15 @@
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: adam-k3s-01-github
+  namespace: fleet-default
+spec:
+  branch: master
+  clientSecretName: alegradi-github-ssh-key
+  correctDrift:  # Self healing
+    enabled: true
+  insecureSkipTLSVerify: false
+  repo: git@github.com:alegradi/adam-k3s-01-fleet.git
+  targets:
+    - clusterName: adam-k3s-01
