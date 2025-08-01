@@ -1,0 +1,15 @@
+---
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: rke2-clu1-github
+  namespace: fleet-default
+spec:
+  branch: master
+  clientSecretName: alegradi-github-ssh-key
+  correctDrift:  # Self healing
+    enabled: true
+  insecureSkipTLSVerify: false
+  repo: git@github.com:alegradi/rke2-clu1-fleet.git
+  targets:
+    - clusterName: rke2-clu1
